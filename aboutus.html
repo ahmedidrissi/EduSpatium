@@ -39,12 +39,12 @@
 
     <nav id="navbar" class="navbar nav-menu">
       <ul>
-        <li><a href="index.html" class="nav-link active"><i class="bx bx-home"></i> <span>Home</span></a></li>
+        <li><a href="index.html" class="nav-link"><i class="bx bx-home"></i> <span>Home</span></a></li>
         <li><a href="whiteboard.html" class="nav-link"><i class="bx bxs-chalkboard"></i> <span>Whiteboard</span></a></li>
         <li><a href="calculator.html" class="nav-link"><i class="bx bx-calculator"></i> <span>Calculator</span></a></li>
         <li><a href="notepad.html" class="nav-link"><i class="bx bx-notepad"></i> <span>Notepad</span></a></li>
         <li><a href="geogebra.html" class="nav-link"><i class="bx bxl-graphql"></i> <span>Geogebra</span></a></li>
-        <li><a href="aboutus.html" class="nav-link"><i class="bx bxs-contact"></i> <span>About Us</span></a></li>
+        <li><a href="aboutus.html" class="nav-link active"><i class="bx bxs-contact"></i> <span>About Us</span></a></li>
       </ul>
     </nav><!-- .nav-menu -->
 
@@ -52,22 +52,11 @@
 
   <main id="main">
 
-    <!-- ======= Home Section ======= -->
-    <section id="home" class="home">
-      <div class="container pt-3" data-aos="fade-down">
-        <div class="clock">
-          <div class="display"></div>
-        </div>
-      </div>
-
+    <!-- ======= AboutUs Section ======= -->
+    <section id="aboutus" class="aboutus">
       <div class="container" data-aos="fade-up">
-        <div class="footer">
-          <div class="copyright">
-            &copy; Copyright <strong><span>Brand Name</span></strong>. All Rights Reserved
-          </div>
-        </div>
-      </div>  
-    </section><!-- End Home Section -->
+      </div>
+    </section><!-- End AboutUs Section -->
 
   </main><!-- End #main -->
 
@@ -83,32 +72,6 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
-  <!-- Digital Clock -->
-  <script>
-    setInterval(function(){
-      const clock = document.querySelector(".display");
-      let time = new Date();
-      let sec = time.getSeconds();
-      let min = time.getMinutes();
-      let hr = time.getHours();
-      let day = 'AM'
-      if (hr > 12) {
-        day = 'PM'
-        hr = hr - 12
-      }
-      if (sec < 10) {
-        sec = '0' + sec;
-      }
-      if (min < 10) {
-        min = '0' + min;
-      }
-      if (hr < 10) {
-        hr = '0' + hr;
-      }
-      clock.textContent = hr + ':' + min + ':' + sec + ' ' + day;
-    });
-  </script>
 
 </body>
 
