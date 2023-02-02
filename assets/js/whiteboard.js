@@ -23,7 +23,7 @@ function draw(e){
     ctx.beginPath();
     ctx.lineCap='round';
     ctx.strokeStyle='#111';
-    ctx.linewidth=0;
+    ctx.linewidth=5;
     ctx.moveTo(mousePos.x,mousePos.y);
     mousePosition(e);
     ctx.lineTo(mousePos.x,mousePos.y);
