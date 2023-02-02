@@ -279,16 +279,15 @@ button{
   height: 40px;
   border-radius: 10px;
   position: absolute;
-  font-style: italic;
   font-weight: bold;
   background-color: rgb(16, 67, 161);
-  color: rgb(238, 255, 0);
+  color: #fff;
   font-size: 18px;
   text-align: center;
   cursor: pointer;
   left: 90%;
   top: 2%;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Arial, Helvetica, sans-serif;
   box-shadow: 0 0 10px #272829;
   border: none;
   transition: 40ms;
