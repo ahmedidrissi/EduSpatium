@@ -335,27 +335,31 @@ section {
 --------------------------------------------------------------*/
 
 button{
-  width: 120px;
-  height: 50px;
+  width: 100px;
+  height: 40px;
   border-radius: 10px;
   font-style: italic;
   font-weight: bold;
   background-color: rgb(16, 67, 161);
   color: rgb(238, 255, 0);
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
-  display: block;
   cursor: pointer;
-  position: center;
   font-family: Georgia, 'Times New Roman', Times, serif;
   box-shadow: 0 0 10px #272829;
   border: none;
+  transition: 40ms;
+  margin-top: 1%;
+  margin-left: 88%;
+  z-index: 2;
 }
-
+button:active{
+  transform: scale(0.95);
+}
 button:hover{
-  width: 110px;
-  height: 30px;
-  
+  background-color: crimson;
+  color: #fff;
+  transition: 30ms;
 }
 
 /*--------------------------------------------------------------
