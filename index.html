@@ -35,11 +35,11 @@
   <i class="bi bi-list mobile-nav-toggle d-lg-none"></i>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="d-flex flex-column justify-content-center">
+  <header id="header" class="d-flex flex-column justify-content-center" data-aos="fade-right">
 
     <nav id="navbar" class="navbar nav-menu">
       <ul>
-        <li><a href="#Home" class="nav-link active"><i class="bx bx-home"></i> <span>Home</span></a></li>
+        <li><a href="index.html" class="nav-link active"><i class="bx bx-home"></i> <span>Home</span></a></li>
         <li><a href="#Tool1" class="nav-link"><i class="bx bx-user"></i> <span>Tool 1</span></a></li>
         <li><a href="#Tool2" class="nav-link"><i class="bx bx-file-blank"></i> <span>Tool 2</span></a></li>
         <li><a href="#Tool3" class="nav-link"><i class="bx bx-book-content"></i> <span>Tool 3</span></a></li>
@@ -53,23 +53,23 @@
   <main id="main">
 
     <!-- ======= Home Section ======= -->
-    <section id="Home" class="Home">
+    <section id="home" class="home">
+      <div class="container pt-3" data-aos="fade-down">
+        <div class="clock">
+          <div class="display"></div>
+        </div>
+      </div>
+
       <div class="container" data-aos="fade-up">
-      </div>   
+        <div class="footer">
+          <div class="copyright">
+            &copy; Copyright <strong><span>Brand Name</span></strong>. All Rights Reserved
+          </div>
+        </div>
+      </div>  
     </section><!-- End Home Section -->
 
   </main><!-- End #main -->
-
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>Brand Name</span></strong>. All Rights Reserved
-      </div>
-    </div>
-  </footer><!-- End Footer -->
-
-  <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
@@ -83,6 +83,32 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- Digital Clock -->
+  <script>
+    setInterval(function(){
+      const clock = document.querySelector(".display");
+      let time = new Date();
+      let sec = time.getSeconds();
+      let min = time.getMinutes();
+      let hr = time.getHours();
+      let day = 'AM'
+      if (hr > 12) {
+        day = 'PM'
+        hr = hr - 12
+      }
+      if (sec < 10) {
+        sec = '0' + sec;
+      }
+      if (min < 10) {
+        min = '0' + min;
+      }
+      if (hr < 10) {
+        hr = '0' + hr;
+      }
+      clock.textContent = hr + ':' + min + ':' + sec + ' ' + day;
+    });
+  </script>
 
 </body>
 
