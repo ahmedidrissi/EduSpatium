@@ -259,8 +259,20 @@ h6 {
 }
 
 /*--------------------------------------------------------------
-# Clear Button
+# Whiteboard Section
 --------------------------------------------------------------*/
+#whiteboard {
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#whiteboard:hover{
+  color:darkblue;
+  transition: 30ms;
+}
 
 button{
   width: 100px;
@@ -282,22 +294,13 @@ button{
   transition: 40ms;
   z-index: 2;
 }
+
 button:active{
   transform: scale(0.95);
 }
+
 button:hover{
   background-color: crimson;
   color: #fff;
-  transition: 30ms;
-}
-
-#whiteboard{
-  text-align: center;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-#whiteboard:hover{
-  color:darkblue;
   transition: 30ms;
 }
