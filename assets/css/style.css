@@ -296,3 +296,161 @@ button:hover{
   color: #fff;
   transition: 30ms;
 }
+
+/*--------------------------------------------------------------
+# Pomodoro Section
+--------------------------------------------------------------*/
+:root {
+  font-size: 62.5%; /* 1rem = 10px */
+  
+  --color-primary: hsl(0, 0%, 100%);
+  --color-secondary: hsl(193, 100%, 50%);
+  --color-font: hsl(233, 100%, 22%);
+
+}
+
+html, body {
+  
+  height: 100%;
+  font-size: 1.6rem;
+  font-family: 'Open sans', sans-serif;
+}
+
+p,
+i,
+#pmdr {
+  color: var(--color-font);
+}
+
+i {
+  font-size: 3.2rem;
+}
+
+.pmdr{
+  margin-top: 5%;
+  font-size: 3.2rem;
+  color: darkblue;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ==== CONTENT ==== */
+
+.container {
+  width: min(42.5rem, 100%);
+  margin-inline: auto;
+  padding-inline: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.painel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+  width: 20rem;
+  margin-block: 5rem;
+  padding: 1rem;
+  border-radius: 10rem;
+  -webkit-box-shadow: 0px 0px 15px 10px var(--color-shadow); 
+  box-shadow: 0px 0px 15px 10px var(--color-shadow);
+}
+
+.painel p {
+  opacity: .8;
+  transition: 0.2s ease-in;
+}
+
+.painel p.active {
+  opacity: 1;
+  color: var(--color-secondary);
+}
+
+.timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30rem;
+  height: 30rem;
+  border-radius: 50%;
+  -webkit-box-shadow: 0px 0px 15px 10px var(--color-shadow); 
+  box-shadow: 0px 0px 15px 10px var(--color-shadow);
+}
+
+.circle {
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  font-family: "Orbitron";
+  width: 26rem;
+  height: 26rem;
+  border-radius: 50%;
+  background-color: var(--color-secondary);
+}
+
+.circle::before {
+  content: '';
+  position: absolute;
+  width: 95%;
+  height: 95%;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+}
+
+.time {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+.time p {
+  font-size: 5.6rem;
+}
+
+.time p:nth-of-type(2) {
+  position: relative;
+  top: -.5rem;
+  margin-inline: 1rem;
+}
+
+.controls {
+  margin-top: 3rem;
+}
+
+.controls button {
+  border: none;
+  background-color: transparent;
+  box-shadow: none;
+  font-size: 50px;
+  cursor: pointer;
+  align-items: center;
+  transition: 0.1s;
+}
+
+.controls button :hover {
+  color: hsl(193, 100%, 50%);
+  transition: 0.1s;
+}
+
+.controls #reset {
+  margin-top: -40px;
+  display: none;
+  transition: 0.1s;
+}
+
+.controls #reset :hover {
+  color: hsl(193, 100%, 50%);
+  transition: 0.1s;
+}
+
+#strt{
+  background-color: none;
+  border: none;
+  box-shadow: none;
+}
