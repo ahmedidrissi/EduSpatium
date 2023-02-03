@@ -202,7 +202,7 @@ h6 {
   height: auto;
   width: 150px;
   border-radius: 7px;
-  box-shadow: 0px 0 10px rgba(0,0,0, 0.2);
+  box-shadow: 0 0 4px rgba(0,0,0, 0.7);
 }
 
 #home .clock .display {
@@ -296,6 +296,151 @@ h6 {
   background-color: crimson;
   color: #fff;
   transition: 30ms;
+}
+
+/*--------------------------------------------------------------
+# Pomodoro Section
+--------------------------------------------------------------*/
+#pomodoro {
+  width: 100%;
+  height: 100vh;
+}
+
+#pomodoro .container {
+  width: min(42.5rem, 100%);
+  height: 100%;
+  padding: 50px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#pomodoro h1{
+  font-size: 3.2rem;
+  color: #0563bb;
+  font-weight: bold;
+}
+
+#pomodoro .painel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+  font-family: "orbitron";
+  width: 20rem;
+  margin-block: 5rem;
+  padding: 1rem;
+  border-radius: 10rem;
+  -webkit-box-shadow: 0px 0px 4px 0px rgba(0, 48, 150, 0.7); 
+  box-shadow: 0px 0px 4px 0px rgba(0, 48, 150, 0.7); 
+  margin-top: 60px;
+}
+
+#pomodoro .painel p {
+  opacity: .8;
+  transition: 0.2s ease-in;
+}
+
+#pomodoro .painel p.active {
+  opacity: 1;
+  color: #067ded;
+}
+
+#pomodoro .timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30rem;
+  height: auto;
+  margin-bottom: 50px;
+  border-radius: 1rem;
+  -webkit-box-shadow: 0px 0px 4px 0px rgba(0, 48, 150, 0.7); 
+  box-shadow: 0px 0px 4px 0px rgba(0, 48, 150, 0.7); 
+}
+
+#pomodoro .circle {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  font-family: "Orbitron";
+  width:100%;
+  height: auto;
+}
+
+#pomodoro .circle::before {
+  content: '';
+  position: absolute;
+  width: 90%;
+  height: 75%;
+  background-color: var(--color-primary);
+}
+
+#pomodoro .time {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+#pomodoro .time p {
+  font-size: 5.6rem;
+}
+
+#pomodoro .time p:nth-of-type(2) {
+  position: relative;
+  top: -.5rem;
+  margin-inline: 1rem;
+}
+
+#pomodoro .controls {
+  margin-top: 3rem;
+}
+
+#pomodoro .controls button {
+  border: none;
+  background-color: transparent;
+  box-shadow: none;
+  font-size: 50px;
+  cursor: pointer;
+  align-items: center;
+  transition: 0.1s;
+}
+
+#pomodoro .controls button :hover {
+  color: hsl(193, 100%, 50%);
+  transition: 0.1s;
+}
+
+#reset {
+  margin-top: -40px;
+  display: none;
+  transition: 0.1s;
+}
+
+#reset :hover {
+  color: hsl(193, 100%, 50%);
+  transition: 0.1s;
+}
+#txtst{
+  color: darkblue;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  transition: 0.1s;
+}
+#start{
+  display: block;
+  position: relative;
+  margin-top: -40px;
+}
+#start :hover{
+  color: hsl(193, 100%, 50%);
+  transition: 0.1s;
+}
+#start :active{
+  transform: scale(0.95);
 }
 
 /*--------------------------------------------------------------
