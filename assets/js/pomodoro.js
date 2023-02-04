@@ -1,55 +1,77 @@
-let workTittle = document.getElementById('work');
-let breakTittle = document.getElementById('break');
+const circularProgressBar = document.querySelector("#circularProgressBar");
+const circularProgressBarNumber = document.querySelector("#circularProgressBar .progress-value");
+const buttonTypePomodoro = document.querySelector("#buttonTypePomodoro");
+const buttonTypeShortBreak = document.querySelector("#buttonTypeShortBreak");
 
-let workTime = 25;
-let breakTime = 5;
+const audio = new Audio('alarm.mp3');
 
-let seconds = "00"
+const pomodoroTimerInSeconds = 1500; 
+const shortBreakTimerInSeconds = 100;
+const TIMER_TYPE_POMODORO = 'POMODORO';
+const TIMER_TYPE_SHORT_BREAK = 'SHORTBREAK';
 
-window.onload = () => {
-    document.getElementById('minutes').innerHTML = workTime;
-    document.getElementById('seconds').innerHTML = seconds;
 
-    workTittle.classList.add('active');
+let progressInterval;
+let pomodoroType = TIMER_TYPE_POMODORO;
+let timerValue = pomodoroTimerInSeconds;
+let multiplierFactor = 360 / timerValue;
+
+
+function formatNumberInStringMinute(number){
+    
+    const minutes = Math.trunc(number / 60)
+                        .toString()
+                            .padStart(2, '0');
+    const seconds = Math.trunc(number % 60)
+                            .toString()
+                                .padStart(2, '0');
+    return `${minutes}:${seconds}`;
 }
 
-function start() {
-    document.getElementById('start').style.display = "none";
-    document.getElementById('reset').style.display = "block";
+const startTimer = () => {
+    progressInterval = setInterval(() => {
+        timerValue--;
+        setInfoCircularProgressBar();
+    }, 1000);
+}
 
-    seconds = 59;
+const stopTimer = () => clearInterval(progressInterval);
 
-    let workMinutes = workTime - 1;
-    let breakMinutes = breakTime - 1;
+const resetTimer = () =>{
+    clearInterval(progressInterval);
 
-    breakCount = 0;
+    timerValue = (pomodoroType === TIMER_TYPE_POMODORO) 
+                        ? pomodoroTimerInSeconds 
+                            : shortBreakTimerInSeconds;
 
-    let timerFunction = () => {
-        document.getElementById('minutes').innerHTML = workMinutes;
-        document.getElementById('seconds').innerHTML = seconds;
+    multiplierFactor = 360 / timerValue;
 
-        seconds = seconds - 1;
+    setInfoCircularProgressBar();    
+    // audio.stop();
+}
+  
+function setInfoCircularProgressBar(){
 
-        if(seconds === 0) {
-            workMinutes = workMinutes - 1;
-            if(workMinutes === -1 ){
-                if(breakCount % 2 === 0) {
-                    workMinutes = breakMinutes;
-                    breakCount++
-
-                    workTittle.classList.remove('active');
-                    breakTittle.classList.add('active');
-                }else {
-                    workMinutes = workTime;
-                    breakCount++
-
-                    breakTittle.classList.remove('active');
-                    workTittle.classList.add('active');
-                }
-            }
-            seconds = 59;
-        }
+    if(timerValue === 0){
+        stopTimer();
+        audio.play();        
     }
 
-    setInterval(timerFunction, 1000);
+    circularProgressBarNumber.textContent = `${formatNumberInStringMinute(timerValue) }`;
+    circularProgressBar.style.background = `conic-gradient(var(--blue) ${timerValue * multiplierFactor}deg, var(--purple) 0deg)`;
+
+}
+
+const setPomodoroType = (type) =>{    
+    pomodoroType = type; 
+
+    if(type === TIMER_TYPE_POMODORO){
+        buttonTypeShortBreak.classList.remove("active");
+        buttonTypePomodoro.classList.add("active");                  
+    }else{
+        buttonTypePomodoro.classList.remove("active");
+        buttonTypeShortBreak.classList.add("active"); 
+    }
+
+    resetTimer();
 }

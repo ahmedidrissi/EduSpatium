@@ -60,8 +60,19 @@
           <div class="display"></div>
         </div>
       </div>
-
-      <div class="container" data-aos="fade-up">
+      <div class="container px-lg-5 px-3" data-aos="fade-up">
+        <div class="blockquote">
+          <div class="quote-generator">
+            <hr class="hr-text" data-content="Tech quotes" />
+            <h1 id="quote">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem,
+              perferendis.
+            </h1>
+            <h2 id="author">Anonymous</h2>
+          </div>
+        </div>
+      </div>
+      <div class="container">
         <div class="footer">
           <div class="copyright">
             &copy; Copyright <strong><span>Brand Name</span></strong>. All Rights Reserved
@@ -86,29 +97,16 @@
   <script src="assets/js/main.js"></script>
 
   <!-- Digital Clock -->
+  <script src="assets/js/clock.js"></script>
   <script>
-    setInterval(function(){
-      const clock = document.querySelector(".display");
-      let time = new Date();
-      let sec = time.getSeconds();
-      let min = time.getMinutes();
-      let hr = time.getHours();
-      let day = 'AM'
-      if (hr > 12) {
-        day = 'PM'
-        hr = hr - 12
-      }
-      if (sec < 10) {
-        sec = '0' + sec;
-      }
-      if (min < 10) {
-        min = '0' + min;
-      }
-      if (hr < 10) {
-        hr = '0' + hr;
-      }
-      clock.textContent = hr + ':' + min + ':' + sec + ' ' + day;
-    });
+    setInterval(showClock);
+  </script>
+
+  <!-- Quote generator -->
+  <script src="assets/js/load.js"></script>
+  <script>
+    getQuoteLocal();
+    setInterval(getQuoteLocal, 10*1000);
   </script>
 
 </body>

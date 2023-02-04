@@ -32,12 +32,10 @@
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
 
-
-
 </head>
 <body>
 
-      <!-- ======= Mobile nav toggle button ======= -->
+  <!-- ======= Mobile nav toggle button ======= -->
   <i class="bi bi-list mobile-nav-toggle d-lg-none"></i>
 
   <!-- ======= Header ======= -->
@@ -60,25 +58,40 @@
     <main id="main">
       <!-- ======= Pomodoro Section ======= -->
       <section id="pomodoro" class="pomodoro">
-        <div class="container">
-            <h1>Pomodoro Timer</h1>
-            <div class="painel">
-                <p id="work">Work</p>
-                <p id="break">Break</p>
+        <div class="container pt-3" data-aos="fade-down">
+          <div class="clock">
+            <div class="display"></div>
+          </div>
+        </div>
+        <div class="container mt-5" data-aos="fade-up">
+          <div class="card pomodoro-colors">
+            <div class="card-header">
+                <h1>Pomodoro Timer</h1>
+                <div class="card-header-buttons">
+                    <button id="buttonTypePomodoro"
+                            class="active" 
+                            onclick="setPomodoroType(TIMER_TYPE_POMODORO);">
+                            Pomodoro
+                    </button>
+                    <button id="buttonTypeShortBreak"
+                            onclick="setPomodoroType(TIMER_TYPE_SHORT_BREAK);">
+                        Short Break
+                    </button>
+                </div>
             </div>
-            <div class="timer">
-                <div class="circle">
-                    <div class="time">
-                        <p id="minutes"></p>
-                        <p>:</p>
-                        <p id="seconds"></p>
+            <div class="card-body">
+                <div id="circularProgressBar" class="progress-bar">
+                    <div class="progress-bar-inner">
+                        <h2 class="progress-value">25:00</h2>
                     </div>
                 </div>
             </div>
-            <div class="controls">
-                <button id="start" onclick="start()"><h3 id="txtst">Click to start</h3></button>
-                <a id="reset" href="pomodoro.html"><i class="fa-solid fa-arrow-rotate-left", id="strt"></i></a>
+            <div class="card-footer">
+                <button class="btn-sucess" onclick="startTimer();">Start</button>
+                <button class="btn-danger" onclick="stopTimer();">Stop</button>
+                <button onclick="resetTimer();">Reset</button>
             </div>
+        </div>
         </div>
       </section>
      <!-- End Pomodor Section -->
@@ -97,6 +110,12 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- Digital Clock -->
+  <script src="assets/js/clock.js"></script>
+  <script>
+    setInterval(showClock);
+  </script>
 
   <!-- SCRIPT -->
   <script src="assets/js/pomodoro.js"></script>
