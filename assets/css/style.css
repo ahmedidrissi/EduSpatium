@@ -580,6 +580,240 @@ h6 {
   height: 100vh;
   display: var(--display-mode);
 }
+::selection{
+  color: #fff;
+  background: #618cf8;
+}
+#notepad .wrapper{
+  margin: 50px;
+  display: grid;
+  gap: 25px;
+  grid-template-columns: repeat(auto-fill, 265px);
+}
+#notepad .wrapper li{
+  height: 250px;
+  list-style: none;
+  border-radius: 5px;
+  padding: 15px 20px 20px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.336);
+}
+#notepad .add-box, .icon, .bottom-content, 
+#notepad .popup, header, .settings .menu li{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#notepad .add-box{
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+}
+#notepad .add-box .icon{
+  height: 78px;
+  width: 78px;
+  color: #88ABFF;
+  font-size: 40px;
+  border-radius: 50%;
+  justify-content: center;
+  border: 2px dashed #88ABFF;
+}
+#notepad .add-box p{
+  color: #88ABFF;
+  font-weight: 500;
+  margin-top: 20px;
+}
+#notepad .note{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#notepad .note .details{
+  max-height: 165px;
+  overflow-y: auto;
+}
+#notepad .note .details::-webkit-scrollbar,
+#notepad .popup textarea::-webkit-scrollbar{
+  width: 0;
+}
+#notepad .note .details:hover::-webkit-scrollbar,
+#notepad .popup textarea:hover::-webkit-scrollbar{
+  width: 5px;
+}
+#notepad .note .details:hover::-webkit-scrollbar-track,
+#notepad .popup textarea:hover::-webkit-scrollbar-track{
+  background: #f1f1f1;
+  border-radius: 25px;
+}
+#notepad .note .details:hover::-webkit-scrollbar-thumb,
+#notepad .popup textarea:hover::-webkit-scrollbar-thumb{
+  background: #e6e6e6;
+  border-radius: 25px;
+}
+#notepad .note p{
+  font-size: 22px;
+  font-weight: 500;
+}
+#notepad .note span{
+  display: block;
+  color: #575757;
+  font-size: 16px;
+  margin-top: 5px;
+}
+#notepad .note .bottom-content{
+  padding-top: 10px;
+  border-top: 1px solid #ccc;
+}
+#notepad.bottom-content span{
+  color: #6D6D6D;
+  font-size: 14px;
+}
+#notepad.bottom-content .settings{
+  position: relative;
+}
+#notepad.bottom-content .settings i{
+  color: #6D6D6D;
+  cursor: pointer;
+  font-size: 15px;
+}
+#notepad .settings .menu{
+  z-index: 1;
+  bottom: 0;
+  right: -5px;
+  padding: 5px 0;
+  background: #fff;
+  position: absolute;
+  border-radius: 4px;
+  transform: scale(0);
+  transform-origin: bottom right;
+  box-shadow: 0 0 6px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease;
+}
+#notepad .settings.show .menu{
+  transform: scale(1);
+}
+#notepad .settings .menu li{
+  height: 25px;
+  font-size: 16px;
+  margin-bottom: 2px;
+  padding: 17px 15px;
+  cursor: pointer;
+  box-shadow: none;
+  border-radius: 0;
+  justify-content: flex-start;
+}
+#notepad .menu li:last-child{
+  margin-bottom: 0;
+}
+#notepad .menu li:hover{
+  background: #f5f5f5;
+}
+#notepad .menu li i{
+  padding-right: 8px;
+}
+#notepad .popup-box{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.4);
+}
+#notepad .popup-box .popup{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 3;
+  width: 100%;
+  max-width: 400px;
+  justify-content: center;
+  transform: translate(-50%, -50%) scale(0.95);
+}
+#notepad .popup-box, #notepad .popup{
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.25s ease;
+}
+#notepad .popup-box.show, #notepad .popup-box.show .popup{
+  opacity: 1;
+  pointer-events: auto;
+}
+#notepad .popup-box.show .popup{
+  transform: translate(-50%, -50%) scale(1);
+}
+#notepad .popup .content{
+  border-radius: 5px;
+  background: #fff;
+  width: calc(100% - 15px);
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+#notepad .content header{
+  padding: 15px 25px;
+  border-bottom: 1px solid #ccc;
+}
+#notepad .content header p{
+  font-size: 20px;
+  font-weight: 500;
+}
+#notepad .content header i{
+  color: #8b8989;
+  cursor: pointer;
+  font-size: 23px;
+}
+#notepad .content form{
+  margin: 15px 25px 35px;
+}
+#notepad .content form .row{
+  margin-bottom: 20px;
+}
+#notepad form .row label{
+  font-size: 18px;
+  display: block;
+  margin-bottom: 6px;
+}
+#notepad form :where(input, textarea){
+  height: 50px;
+  width: 100%;
+  outline: none;
+  font-size: 17px;
+  padding: 0 15px;
+  border-radius: 4px;
+  border: 1px solid #999;
+}
+#notepad form :where(input, textarea):focus{
+  box-shadow: 0 2px 4px rgba(0,0,0,0.11);
+}
+#notepad form .row textarea{
+  height: 150px;
+  resize: none;
+  padding: 8px 15px;
+}
+#notepad form button{
+  width: 100%;
+  height: 50px;
+  color: #fff;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-size: 17px;
+  border-radius: 4px;
+  background: #6A93F8;
+}
+
+@media (max-width: 660px){
+  #notepad .wrapper{
+    margin: 15px;
+    gap: 15px;
+    grid-template-columns: repeat(auto-fill, 100%);
+  }
+  #notepad .popup-box .popup{
+    max-width: calc(100% - 15px);
+  }
+  #notepad .bottom-content .settings i{
+    font-size: 17px;
+  }
+}
 /*--------------------------------------------------------------
 # Geogebra Section
 --------------------------------------------------------------*/
