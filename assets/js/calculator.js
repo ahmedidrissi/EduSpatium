@@ -18,13 +18,3 @@ buttons.forEach((item) => {
     }
   };
 });
-
-const themeToggleBtn = document.querySelector(".theme-toggler");
-const calculator = document.querySelector(".calculator-bg");
-const toggleIcon = document.querySelector(".toggler-icon");
-let isDark = false;
-themeToggleBtn.onclick = () => {
-  calculator.classList.toggle("dark");
-  themeToggleBtn.classList.toggle("active");
-  isDark = !isDark;
-};
