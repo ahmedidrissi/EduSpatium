@@ -39,13 +39,13 @@
 
     <nav id="navbar" class="navbar nav-menu">
       <ul>
-        <li><a href="index.html" class="nav-link active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-        <li><a href="pomodoro.html" class="nav-link"><i class="bx bx-alarm"></i> <span>Pomodoro</span></a></li>
-        <li><a href="whiteboard.html" class="nav-link"><i class="bx bxs-chalkboard"></i> <span>Whiteboard</span></a></li>
-        <li><a href="calculator.html" class="nav-link"><i class="bx bx-calculator"></i> <span>Calculator</span></a></li>
-        <li><a href="notepad.html" class="nav-link"><i class="bx bx-notepad"></i> <span>Notepad</span></a></li>
-        <li><a href="geogebra.html" class="nav-link"><i class="bx bxl-graphql"></i> <span>Geogebra</span></a></li>
-        <li><a href="aboutus.html" class="nav-link"><i class="bx bxs-contact"></i> <span>About Us</span></a></li>
+        <li><a id="nav-home" onclick="show('home')" href="#home" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
+        <li><a id="nav-pomodoro" onclick="show('pomodoro')" href="#pomodoro" class="nav-link scrollto"><i class="bx bx-alarm"></i> <span>Pomodoro</span></a></li>
+        <li><a id="nav-whiteboard" onclick="show('whiteboard')" href="#whiteboard" class="nav-link scrollto"><i class="bx bxs-chalkboard"></i> <span>Whiteboard</span></a></li>
+        <li><a id="nav-calculator" onclick="show('calculator')" href="#calculator" class="nav-link scrollto"><i class="bx bx-calculator"></i> <span>Calculator</span></a></li>
+        <li><a id="nav-notepad" onclick="show('notepad')" href="#notepad" class="nav-link scrollto"><i class="bx bx-notepad"></i> <span>Notepad</span></a></li>
+        <li><a id="nav-geogebra" onclick="show('geogebra')" href="#geogebra" class="nav-link scrollto"><i class="bx bxl-graphql"></i> <span>Geogebra</span></a></li>
+        <li><a id="nav-aboutus" onclick="show('aboutus')" href="#aboutus" class="nav-link scrollto"><i class="bx bxs-contact"></i> <span>About Us</span></a></li>
       </ul>
     </nav><!-- .nav-menu -->
 
@@ -53,33 +53,130 @@
 
   <main id="main">
 
-    <!-- ======= Home Section ======= -->
-    <section id="home" class="home">
+    <!-- ======= Sections ======= -->
+    <section id="home" class="home display-on">
       <div class="container pt-3" data-aos="fade-down">
-        <div class="clock">
-          <div class="display"></div>
-        </div>
+          <div class="clock">
+            <div class="display"></div>
+          </div>
       </div>
       <div class="container px-lg-5 px-3" data-aos="fade-up">
-        <div class="blockquote">
+      <div class="blockquote">
           <div class="quote-generator">
-            <hr class="hr-text" data-content="Tech quotes" />
-            <h1 id="quote">
+          <hr class="hr-text" data-content="Tech Quotes" />
+          <h1 id="quote">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem,
               perferendis.
-            </h1>
-            <h2 id="author">Anonymous</h2>
+          </h1>
+          <h2 id="author">Anonymous</h2>
           </div>
-        </div>
+      </div>
       </div>
       <div class="container">
-        <div class="footer">
+      <div class="footer">
           <div class="copyright">
-            &copy; Copyright <strong><span>Brand Name</span></strong>. All Rights Reserved
+          &copy; Copyright <strong><span>Brand Name</span></strong>. All Rights Reserved
           </div>
+      </div>
+      </div>
+    </section>
+    <section id="pomodoro" class="pomodoro display-off">
+      <div class="container d-flex justify-content-center align-items-center" data-aos="fade-up">
+        <div class="card pomodoro-colors">
+            <div class="card-header">
+                <h1>Pomodoro Timer</h1>
+                <div class="card-header-buttons">
+                    <button id="buttonTypePomodoro"
+                            class="active" 
+                            onclick="setPomodoroType(TIMER_TYPE_POMODORO);">
+                            Pomodoro
+                    </button>
+                    <button id="buttonTypeShortBreak"
+                            onclick="setPomodoroType(TIMER_TYPE_SHORT_BREAK);">
+                        Short Break
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="circularProgressBar" class="progress-bar">
+                    <div class="progress-bar-inner">
+                        <h2 class="progress-value">25:00</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button class="btn-sucess" onclick="startTimer();">Start</button>
+                <button class="btn-danger" onclick="stopTimer();">Stop</button>
+                <button onclick="resetTimer();">Reset</button>
+            </div>
         </div>
-      </div>  
-    </section><!-- End Home Section -->
+        </div>
+    </section>
+    <section id="whiteboard" class="whiteboard display-off">
+        <button onclick="resize()">Clear</button>
+        <canvas id="canvas"></canvas> 
+    </section>
+    <section id="calculator" class="calculator display-off">
+      <div class="container" data-aos="fade-up">
+        <div class="calculator-bg">
+            <h2>Calculator</h2>
+            <div class="display-screen">
+                <div id="calc-display"></div>
+            </div>
+            <div class="buttons">
+                <table>
+                    <tr>
+                        <td><button class="calc-button btn-operator" id="clear">C</button></td>
+                        <td><button class="calc-button btn-operator" id="/">&divide;</button></td>
+                        <td><button class="calc-button btn-operator" id="*">&times;</button></td>
+                        <td><button class="calc-button btn-operator" id="backspace"><</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="calc-button btn-number" id="7">7</button></td>
+                        <td><button class="calc-button btn-number" id="8">8</button></td>
+                        <td><button class="calc-button btn-number" id="9">9</button></td>
+                        <td><button class="calc-button btn-operator" id="-">-</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="calc-button btn-number" id="4">4</button></td>
+                        <td><button class="calc-button btn-number" id="5">5</button></td>
+                        <td><button class="calc-button btn-number" id="6">6</button></td>
+                        <td><button class="calc-button btn-operator" id="+">+</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="calc-button btn-number" id="1">1</button></td>
+                        <td><button class="calc-button btn-number" id="2">2</button></td>
+                        <td><button class="calc-button btn-number" id="3">3</button></td>
+                        <td rowspan="2"><button class="calc-button btn-equal" id="equal">=</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="calc-button btn-operator" id="(">(</button></td>
+                        <td><button class="calc-button btn-number" id="0">0</button></td>
+                        <td><button class="calc-button btn-operator" id=")">)</button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+      </div>
+    </section>
+    <section id="notepad" class="notepad display-off">
+      <div class="container">
+        <h1>Hello</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero nemo pariatur perferendis dolorem voluptas, odio iure cumque natus, sunt aspernatur quidem! Quia ut rerum nihil libero reprehenderit saepe rem fugit.</p>
+      </div>
+    </section>
+    <section id="geogebra" class="geogebra display-off">
+      <div class="container">
+        <h1>Hello</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero nemo pariatur perferendis dolorem voluptas, odio iure cumque natus, sunt aspernatur quidem! Quia ut rerum nihil libero reprehenderit saepe rem fugit.</p>
+      </div>
+    </section>
+    <section id="aboutus" class="aboutus display-off">
+      <div class="container">
+        <h1>Hello</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero nemo pariatur perferendis dolorem voluptas, odio iure cumque natus, sunt aspernatur quidem! Quia ut rerum nihil libero reprehenderit saepe rem fugit.</p>
+      </div>
+    </section>
 
   </main><!-- End #main -->
 
@@ -96,6 +193,25 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
+  <script>
+    const sections = ["pomodoro", "whiteboard", "calculator", "notepad", "geogebra", "aboutus"]
+
+    function hide(sectionName) {
+      element1 = document.querySelector("#nav-" + sectionName);
+      element1.setAttribute("class", "nav-link scrollto") ;
+      element2 = document.querySelector("#" + sectionName);
+      element2.setAttribute("class", sectionName + " display-off") ;
+    }
+
+    function show(sectionName) {
+      sections.forEach(hide)
+      element1 = document.querySelector("#nav-" + sectionName);
+      element1.setAttribute("class", "nav-link scrollto active") ;
+      element2 = document.querySelector("#" + sectionName);
+      element2.setAttribute("class", sectionName + " display-on") ;
+    }
+  </script>
+
   <!-- Digital Clock -->
   <script src="assets/js/clock.js"></script>
   <script>
@@ -108,6 +224,10 @@
     getQuoteLocal();
     setInterval(getQuoteLocal, 10*1000);
   </script>
+
+  <script src="assets/js/pomodoro.js"></script>
+  <script src="assets/js/whiteboard.js"></script>
+  <script src="assets/js/calculator.js"></script>
 
 </body>
 
