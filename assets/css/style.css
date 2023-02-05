@@ -9,6 +9,13 @@
   --text-color: #000;
 }
 
+.display-on {
+  --display-mode: block;
+}
+.display-off {
+  --display-mode: none;
+}
+
 @font-face {
   font-family: "Orbitron";
   font-style: normal;
@@ -200,30 +207,32 @@ h6 {
   background-color: var(--primary-color);
 }
 
-.clock {
-  margin: 0 auto;
-  height: auto;
-  width: 150px;
-  border-radius: 7px;
-  background-color: var(--secondary-bg-color);
-  box-shadow: 0 0 4px rgba(0,0,0, 0.7);
-}
-
-.clock .display {
-  padding: 6px 10px;
-  text-align: center;
-  color: #45505b;
-  font-size: 14px;
-  letter-spacing: 2px;
-  font-family: "Orbitron";
-}
-
 /*--------------------------------------------------------------
 # Home Section
 --------------------------------------------------------------*/
 #home {
   width: 100%;
   height: 100vh;
+  display: var(--display-mode);
+}
+
+#home .clock {
+  margin: 0 auto;
+  height: auto;
+  width: 150px;
+  text-align: center;
+  border-radius: 7px;
+  background-color: var(--secondary-bg-color);
+  box-shadow: 0 0 4px rgba(0,0,0, 0.7);
+}
+
+#home .clock .display {
+  padding: 6px 0;
+  padding-left: 2px;
+  color: #45505b;
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-family: "Orbitron";
 }
 
 #home .blockquote {
@@ -313,8 +322,11 @@ h6 {
 #pomodoro {
   width: 100%;
   height: 100vh;
+  display: var(--display-mode);
 }
-
+#pomodoro .container {
+  height: 100%;
+}
 #pomodoro .card {
   width: 20rem;
   margin: 0 auto;
@@ -336,9 +348,9 @@ h6 {
   gap: 10px;
 }
 #pomodoro .card-header h1 {
-  font-weight: 900;
-  font-size: 24px;
+  font-size: 22px;
   color: var(--title-primary-color);
+  font-family: 'Orbitron';
 }
 #pomodoro .card-header-buttons {
   display: flex;
@@ -437,6 +449,11 @@ h6 {
 /*--------------------------------------------------------------
 # Whiteboard Section
 --------------------------------------------------------------*/
+#whiteboard {
+  height: 100vh;
+  display: var(--display-mode);
+  position: relative;
+}
 
 #canvas {
   width:fit-content;
@@ -445,20 +462,19 @@ h6 {
 }
 
 #whiteboard button{
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
   width: 100px;
   height: 40px;
-  border-radius: 10px;
-  position: absolute;
-  font-weight: bold;
-  background-color: rgb(16, 67, 161);
+  border-radius: 5px;
+  background-color: var(--primary-color);
   color: #fff;
   font-size: 18px;
   text-align: center;
   cursor: pointer;
-  left: 90%;
-  top: 2%;
-  font-family: Arial, Helvetica, sans-serif;
-  box-shadow: 0 0 10px #272829;
+  font-family: 'Orbitron';
+  box-shadow: 0 0 4px rgba(0,0,0, 0.7);
   border: none;
   transition: 40ms;
 }
@@ -468,7 +484,7 @@ h6 {
 }
 
 #whiteboard button:hover{
-  background-color: crimson;
+  background-color: #00cbd6;
   color: #fff;
   transition: 30ms;
 }
@@ -479,6 +495,7 @@ h6 {
 #calculator {
   width: 100%;
   height: 100vh;
+  display: var(--display-mode);
 }
 
 #calculator .container {
@@ -495,48 +512,28 @@ h6 {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 5px #000;
+  background-color: #0e0e0e;
 }
 
-#calculator .theme-toggler {
-  position: absolute;
-  top: 30px;
-  right: 30px;
+#calculator h2{
+  text-align: center;
+  font-family: 'Orbitron';
   color: #fff;
-  cursor: pointer;
-  z-index: 1;
+  font-size: 24px;
 }
-
-#calculator .theme-toggler.active {
-  color: #333;
-}
-
-#calculator .theme-toggler.active::before {
-  background-color: #fff;
-}
-
-#calculator .theme-toggler::before {
-  content: '';
-  height: 30px;
-  width: 30px;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  background-color: #333;
-  z-index: -1;
-}
-
 #calc-display {
   margin: 0 10px;
-  height: 150px;
+  height: 60px;
   width: auto;
-  max-width: 270px;
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
   font-size: 30px;
-  margin-bottom: 20px;
+  margin: 20px 5px;
+  padding: 0 5px;
+  border-radius: 5px;
   overflow-x: scroll;
+  background-color: #5c5c5c;
 }
 
 #calc-display::-webkit-scrollbar {
@@ -551,74 +548,51 @@ h6 {
   border-radius: 30px;
   margin: 5px;
   font-size: 20px;
+  font-weight: bold;
   cursor: pointer;
   transition: all 200ms ease;
+  background-color: #9e9e9e;
+  box-shadow: 0 0 4px rgba(0, 0, 0, .95);
 }
 
 #calculator button:hover {
   transform: scale(1.1);
 }
-
+#calculator button#backspace {
+  background-color: #4302ac;
+} 
+#calculator button.btn-operator {
+  background-color: #2f00ff;
+}
+#calculator button#clear {
+  background-color: #4302ac;
+} 
 #calculator button#equal {
   height: 130px;
+  background-color: #4302ac;
 }
 
-/* light theme */
-
-#calculator .calculator-bg {
-  background-color: #fff;
+/*--------------------------------------------------------------
+# Notepad Section
+--------------------------------------------------------------*/
+#notepad {
+  width: 100%;
+  height: 100vh;
+  display: var(--display-mode);
 }
-
-#calculator .calculator-bg #display {
-  color: #0a1e23;
+/*--------------------------------------------------------------
+# Geogebra Section
+--------------------------------------------------------------*/
+#geogebra {
+  width: 100%;
+  height: 100vh;
+  display: var(--display-mode);
 }
-
-#calculator .calculator-bg button#clear {
-  background-color: #ffd5d8;
-  color: #fc4552;
-}
-
-#calculator .calculator-bg button.btn-number {
-  background-color: #c3eaff;
-  color: #000000;
-}
-
-#calculator .calculator-bg button.btn-operator {
-  background-color: #ffd0fb;
-  color: #f967f3;
-}
-
-#calculator .calculator-bg button.btn-equal {
-  background-color: #adf9e7;
-  color: #000;
-}
-
-/* dark theme */
-
-#calculator .calculator-bg.dark {
-  background-color: #071115;
-}
-
-#calculator .calculator-bg.dark #display {
-  color: #f8fafb;
-}
-
-#calculator .calculator-bg.dark button#clear {
-  background-color: #2d191e;
-  color: #bd3740;
-}
-
-#calculator .calculator-bg.dark button.btn-number {
-  background-color: #1b2f38;
-  color: #f8fafb;
-}
-
-#calculator .calculator-bg.dark button.btn-operator {
-  background-color: #2e1f39;
-  color: #aa00a4;
-}
-
-#calculator .calculator-bg.dark button.btn-equal {
-  background-color: #223323;
-  color: #ffffff;
+/*--------------------------------------------------------------
+# AboutUs Section
+--------------------------------------------------------------*/
+#aboutus {
+  width: 100%;
+  height: 100vh;
+  display: var(--display-mode);
 }
