@@ -588,6 +588,56 @@ h6 {
   height: 100vh;
   display: var(--display-mode);
 }
+
+#geogebra input[type=text] {
+  width: 30em;
+  height: 30px;
+  padding:6px;
+  border: 2px solid black;
+  border-radius:10px 10px 10px 10px ;
+}
+#geogebra input{
+  height:46px;
+  width: 90px;
+}
+#geogebra input[type=text]:hover{
+  border: 2px solid #006989;
+}
+
+#geogebra input {
+  padding: 0px;
+  border-radius:10px 10px 10px 10px ;
+}
+#geogebra input[type=submit]:hover{
+  background-color: #006989;
+  opacity:80%;
+}
+#geogebra input,#geogebra input[type=text]{
+  font-family: Arial, sans-serif;
+  font-size: 20pt;
+}
+
+#geogebra form {
+  margin: 20px 0;
+}
+#geogebra .conteneur{
+  position:relative;
+  top: 8em;
+  display:flex;
+  justify-content: center;
+}
+#geogebra .eq{
+  font-family: Arial, sans-serif;
+  font-size: 20pt;
+  color:#006989;
+}
+#plot{
+  display: flex;
+  justify-content: flex-end;
+  position:relative;
+  margin-left: 100px;
+  bottom: -120px;
+}
 /*--------------------------------------------------------------
 # AboutUs Section
 --------------------------------------------------------------*/
