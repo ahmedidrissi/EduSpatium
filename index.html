@@ -163,9 +163,34 @@
       </div>
     </section>
     <section id="notepad" class="notepad display-off">
-      <div class="container">
-        <h1>Hello</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero nemo pariatur perferendis dolorem voluptas, odio iure cumque natus, sunt aspernatur quidem! Quia ut rerum nihil libero reprehenderit saepe rem fugit.</p>
+      <div class="container p-4">
+        <div class="popup-box">
+          <div class="popup">
+            <div class="content">
+              <header>
+                <p class="m-0"></p>
+                <i class="bx bx-x"></i>
+              </header>
+              <form action="#">
+                <div class="row title">
+                  <label>Title</label>
+                  <input type="text" spellcheck="false">
+                </div>
+                <div class="row description">
+                  <label>Description</label>
+                  <textarea spellcheck="false"></textarea>
+                </div>
+                <button class="mt-2"></button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="wrapper">
+          <li class="add-box">
+            <div class="icon mt-3"><i class="bx bx-plus"></i></div>
+            <p>Add new note</p>
+          </li>
+        </div>
       </div>
     </section>
     <section id="geogebra" class="geogebra display-off">
@@ -237,6 +262,7 @@
   <script src="assets/js/pomodoro.js"></script>
   <script src="assets/js/whiteboard.js"></script>
   <script src="assets/js/calculator.js"></script>
+  <script src="assets/js/notepad.js"></script>
   <script src="assets/js/geogebra.js"></script>
 
 </body>
