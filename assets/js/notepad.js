@@ -23,7 +23,7 @@ closeIcon.addEventListener("click", () => {
     isUpdate = false;
     titleTag.value = descTag.value = "";
     popupBox.classList.remove("show");
-    document.querySelector("body").style.overflow = "auto";
+    document.querySelector("body").style.overflow = "hidden";
 });
 
 function showNotes() {
