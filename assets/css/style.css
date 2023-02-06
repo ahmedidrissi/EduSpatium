@@ -580,26 +580,34 @@ h6 {
   height: 100vh;
   display: var(--display-mode);
 }
+#notepad .container{
+  height: 100%;
+}
 ::selection{
   color: #fff;
   background: #618cf8;
 }
 #notepad .wrapper{
-  margin: 50px;
+  background-color: #0263d3;
+  height: 100%;
   display: grid;
-  gap: 25px;
-  grid-template-columns: repeat(auto-fill, 265px);
+  padding-left: 20px;
+  padding-top: 20px;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fill, 250px);
+  overflow: scroll;
 }
 #notepad .wrapper li{
   height: 250px;
+  width: 250px;
   list-style: none;
   border-radius: 5px;
   padding: 15px 20px 20px;
   background: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.336);
 }
-#notepad .add-box, .icon, .bottom-content, 
-#notepad .popup, header, .settings .menu li{
+#notepad .add-box, #notepad .icon, #notepad .bottom-content, 
+#notepad .popup, #notepad header, #notepad .settings .menu li{
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -678,8 +686,6 @@ h6 {
 }
 #notepad .settings .menu{
   z-index: 1;
-  bottom: 0;
-  right: -5px;
   padding: 5px 0;
   background: #fff;
   position: absolute;
@@ -799,6 +805,9 @@ h6 {
   font-size: 17px;
   border-radius: 4px;
   background: #6A93F8;
+}
+#notepad form button:hover{
+  background: #0563bb;
 }
 
 @media (max-width: 660px){
