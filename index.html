@@ -6,6 +6,9 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Brand Name</title>
+  <script src="https://unpkg.com/mathjs@11.5.1/lib/browser/math.js"></script>
+  <script src="https://cdn.plot.ly/plotly-1.35.2.min.js"></script>
+  
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -192,8 +195,14 @@
     </section>
     <section id="geogebra" class="geogebra display-off">
       <div class="container">
-        <h1>Hello</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero nemo pariatur perferendis dolorem voluptas, odio iure cumque natus, sunt aspernatur quidem! Quia ut rerum nihil libero reprehenderit saepe rem fugit.</p>
+        <div class="conteneur">
+          <form id="form">
+              <label for="eq" class="eq">Enter the function:</label><br>
+              <input type="text" id="eq" placeholder="Ex: sqrt(x) * sin(x^2) / x" />
+              <input type="submit" value="Draw" />
+          </form>
+      </div>
+      <div id="plot"></div>
       </div>
     </section>
     <section id="aboutus" class="aboutus display-off">
@@ -254,6 +263,7 @@
   <script src="assets/js/whiteboard.js"></script>
   <script src="assets/js/calculator.js"></script>
   <script src="assets/js/notepad.js"></script>
+  <script src="assets/js/geogebra.js"></script>
 
 </body>
 
