@@ -2,6 +2,12 @@
 # General
 --------------------------------------------------------------*/
 :root {
+  --color-1: #0563bb;
+  --color-2: #0990C1;
+  --color-3: #01a18c;
+  --color-4: #06BA63;
+  --color-5: #f2f3f5;
+  --color-6: #45505b;
   --primary-color: #0563bb;
   --secondary-color: #119DA4;
   --primary-bg-color: #fff;
@@ -29,12 +35,12 @@ body {
 }
 
 a {
-  color: var(--primary-color);
+  color: var(--color-1);
   text-decoration: none;
 }
 
 a:hover {
-  color: var(--secondary-color);
+  color: var(--color-2);
   text-decoration: none;
 }
 
@@ -106,13 +112,13 @@ h6 {
 .nav-menu a:focus {
   display: flex;
   align-items: center;
-  color: #45505b;
+  color: var(--color-6);
   padding: 10px 18px;
   margin-bottom: 8px;
   transition: 0.3s;
   font-size: 15px;
   border-radius: 50px;
-  background: #f2f3f5;
+  background: var(--color-5);
   height: 56px;
   width: 100%;
   overflow: hidden;
@@ -128,7 +134,7 @@ h6 {
 .nav-menu a span,
 .nav-menu a:focus span {
   padding: 0 5px 0 7px;
-  color: #45505b;
+  color: var(--color-6);
 }
 
 @media (min-width: 992px) {
@@ -191,7 +197,7 @@ h6 {
 }
 
 .mobile-nav-toggle i {
-  color: #45505b;
+  color: var(--color-6);
 }
 
 .mobile-nav-active {
@@ -204,7 +210,7 @@ h6 {
 
 .mobile-nav-active .mobile-nav-toggle {
   color: #fff;
-  background-color: var(--primary-color);
+  background-color: var(--color-1);
 }
 
 /*--------------------------------------------------------------
@@ -222,14 +228,14 @@ h6 {
   width: 150px;
   text-align: center;
   border-radius: 7px;
-  background-color: var(--secondary-bg-color);
+  background-color: var(--color-5);
   box-shadow: 0 0 4px rgba(0,0,0, 0.7);
 }
 
 #home .clock .display {
   padding: 6px 0;
   padding-left: 2px;
-  color: #45505b;
+  color: var(--color-6);
   font-size: 14px;
   letter-spacing: 2px;
   font-family: "Orbitron";
@@ -296,7 +302,7 @@ h6 {
 #home .footer .copyright {
   font-size: 14px;
   text-align: center;
-  color: #45505b;
+  color: var(--color-6);
 }
 
 @media (max-width: 992px) {
@@ -308,17 +314,6 @@ h6 {
 /*--------------------------------------------------------------
 # Pomodoro Section
 --------------------------------------------------------------*/
-.pomodoro-colors {
-  --yellow: #8501d1;
-  --green: #4302ac;
-  --red: #0263d3;
-  --blue: #2f00ff;
-  --dark-blue: #130066;
-  --purple: #5e4cad;
-  --purple-secondary: #3a2888;
-  --title-primary-color: rgb(231 226 226);
-}
-
 #pomodoro {
   width: 100%;
   height: 100vh;
@@ -336,7 +331,7 @@ h6 {
   justify-content: center;
   padding: 20px;
   border-radius: 15px;
-  background: var(--dark-blue);
+  background: var(--color-6);
   box-shadow: 0 0 5px 0 rgba(0,0,0, 0.8);
 }
 #pomodoro .card-header {
@@ -349,7 +344,7 @@ h6 {
 }
 #pomodoro .card-header h1 {
   font-size: 22px;
-  color: var(--title-primary-color);
+  color: #fff;
   font-family: 'Orbitron';
 }
 #pomodoro .card-header-buttons {
@@ -363,11 +358,12 @@ h6 {
   border-radius: 10px;
   font-weight: 700;
   font-size: 14px;
-  background-color: var(--purple);
-  color: var(--title-primary-color);
+  background-color: var(--color-5);
+  color: #000;
 }
 #pomodoro .card-header-buttons .active {
-  background-color: var(--red);
+  background-color: var(--color-1);
+  color: #fff;
 }
 
 /* card body */
@@ -378,13 +374,13 @@ h6 {
   align-items: center;
   padding: 30px;
 }
-.progress-bar {
+#pomodoro .progress-bar {
   height: 180px;
   width: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: conic-gradient(var(--blue) 360deg, var(--purple) 0deg);
+  background: conic-gradient(var(--color-1) 360deg, var(--color-5) 0deg);
   border-radius: 50%;
   animation: pulse 3s infinite;
   transition: all ease;
@@ -392,20 +388,20 @@ h6 {
     rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
     rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
-.progress-bar-inner {
+#pomodoro .progress-bar-inner {
   width: 90%;
   height: 90%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--dark-blue);
+  background: var(--color-6);
   border-radius: 50%;
-  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+  box-shadow: rgba(6, 44, 30, 0.4) 0px 0px 0px 2px,
     rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
     rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
-.progress-bar-inner h2 {
-  color: var(--title-primary-color);
+#pomodoro .progress-bar-inner h2 {
+  color: #fff;
   font-weight: 900;
   font-size: 40px;
 }
@@ -419,22 +415,23 @@ h6 {
 #pomodoro .card-footer button {
   padding: 8px 12px;
   border-radius: 6px;
-  background-color: var(--yellow);
-  color: var(--title-primary-color);
+  background-color: var(--color-1);
+  color: #fff;
   font-weight: 900;
   font-size: 14px;
 }
 #pomodoro .card-footer .btn-sucess {
-  background-color: var(--green);
+  background-color: var(--color-1);
 }
 #pomodoro .card-footer .btn-danger {
-  background-color: var(--red);
+  color: #000;
+  background-color: var(--color-5);
 }
 
 @keyframes pulse {
   0% {
     transform: scale(0.97);
-    box-shadow: 0 0 0 0 rgba(52, 172, 224, 0.7);
+    box-shadow: 0 0 0 0 var(--color-1);
   }
   50% {
     transform: scale(1);
