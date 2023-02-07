@@ -3,10 +3,10 @@ const circularProgressBarNumber = document.querySelector("#circularProgressBar .
 const buttonTypePomodoro = document.querySelector("#buttonTypePomodoro");
 const buttonTypeShortBreak = document.querySelector("#buttonTypeShortBreak");
 
-const audio = new Audio('alarm.mp3');
+const audio = new Audio('./assets/music/pomodoro_alarm.mp3');
 
 const pomodoroTimerInSeconds = 1500; 
-const shortBreakTimerInSeconds = 100;
+const shortBreakTimerInSeconds = 300;
 const TIMER_TYPE_POMODORO = 'POMODORO';
 const TIMER_TYPE_SHORT_BREAK = 'SHORTBREAK';
 
@@ -58,7 +58,7 @@ function setInfoCircularProgressBar(){
     }
 
     circularProgressBarNumber.textContent = `${formatNumberInStringMinute(timerValue) }`;
-    circularProgressBar.style.background = `conic-gradient(var(--blue) ${timerValue * multiplierFactor}deg, var(--purple) 0deg)`;
+    circularProgressBar.style.background = `conic-gradient(var(--color-1) ${timerValue * multiplierFactor}deg, var(--color-5) 0deg)`;
 
 }
 
