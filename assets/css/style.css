@@ -8,11 +8,6 @@
   --color-4: #06BA63;
   --color-5: #f2f3f5;
   --color-6: #45505b;
-  --primary-color: #0563bb;
-  --secondary-color: #119DA4;
-  --primary-bg-color: #fff;
-  --secondary-bg-color: #eeeeee;
-  --text-color: #000;
 }
 
 .display-on {
@@ -30,7 +25,7 @@
 
 body {
   font-family: "Open Sans", sans-serif;
-  color: var(--text-color);
+  color: #000;
   overflow: hidden;
 }
 
@@ -74,7 +69,7 @@ h6 {
 @media (max-width: 991px) {
   #header {
     width: 300px;
-    background: var(--primary-bg-color);
+    background: #fff;
     border-right: 1px solid #e6e9ec;
     left: -300px;
   }
@@ -156,7 +151,7 @@ h6 {
 .nav-menu .active:focus,
 .nav-menu li:hover>a {
   color: #fff;
-  background: var(--primary-color);
+  background: var(--color-1);
 }
 
 .nav-menu a:hover span,
@@ -890,10 +885,33 @@ h6 {
   justify-content: center;
 }
 /*--------------------------------------------------------------
-# AboutUs Section
+# About Section
 --------------------------------------------------------------*/
-#aboutus {
+#about {
   width: 100%;
   height: 100vh;
   display: var(--display-mode);
+}
+
+#about .container{
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+}
+#about .bg-col{
+  background-color: var(--color-5);
+  box-shadow: 0 0 4px rgba(0,0,0, 0.7);
+  height: 90%;
+  padding: 20px 20px;
+  margin: 10px;
+  border-radius: 10px;
+}
+#about h2{
+  color: var(--color-1);
+}
+#about h4{
+  color: var(--color-6);
+}
+#about .dev-bg{
+  padding: 10px;
 }
