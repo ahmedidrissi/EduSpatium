@@ -1,0 +1,917 @@
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+:root {
+  --color-1: #0563bb;
+  --color-2: #0990C1;
+  --color-3: #01a18c;
+  --color-4: #06BA63;
+  --color-5: #f2f3f5;
+  --color-6: #45505b;
+}
+
+.display-on {
+  --display-mode: block;
+}
+.display-off {
+  --display-mode: none;
+}
+
+@font-face {
+  font-family: "Orbitron";
+  font-style: normal;
+  src: url(../font/Orbitron/Orbitron-Medium.ttf);
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #000;
+  overflow: hidden;
+}
+
+a {
+  color: var(--color-1);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-2);
+  text-decoration: none;
+}
+
+button {
+  border: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Raleway", sans-serif;
+}
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 9997;
+  transition: all 0.5s;
+  padding: 15px;
+  overflow-y: auto;
+}
+
+@media (max-width: 991px) {
+  #header {
+    width: 300px;
+    background: #fff;
+    border-right: 1px solid #e6e9ec;
+    left: -300px;
+  }
+}
+
+@media (min-width: 991px) {
+  #main {
+    margin-left: 90px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+/**
+* Desktop Navigation 
+*/
+.nav-menu {
+  padding: 0;
+  display: block;
+}
+
+.nav-menu * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-menu>ul>li {
+  position: relative;
+  white-space: nowrap;
+}
+
+.nav-menu a,
+.nav-menu a:focus {
+  display: flex;
+  align-items: center;
+  color: var(--color-6);
+  padding: 10px 18px;
+  margin-bottom: 8px;
+  transition: 0.3s;
+  font-size: 15px;
+  border-radius: 50px;
+  background: var(--color-5);
+  height: 56px;
+  width: 100%;
+  overflow: hidden;
+  transition: 0.3s;
+  box-shadow: 0 0 4px rgba(0,0,0, 0.7);
+}
+
+.nav-menu a i,
+.nav-menu a:focus i {
+  font-size: 20px;
+}
+
+.nav-menu a span,
+.nav-menu a:focus span {
+  padding: 0 5px 0 7px;
+  color: var(--color-6);
+}
+
+@media (min-width: 992px) {
+
+  .nav-menu a,
+  .nav-menu a:focus {
+    width: 56px;
+  }
+
+  .nav-menu a span,
+  .nav-menu a:focus span {
+    display: none;
+    color: #fff;
+  }
+}
+
+.nav-menu a:hover,
+.nav-menu .active,
+.nav-menu .active:focus,
+.nav-menu li:hover>a {
+  color: #fff;
+  background: var(--color-1);
+}
+
+.nav-menu a:hover span,
+.nav-menu .active span,
+.nav-menu .active:focus span,
+.nav-menu li:hover>a span {
+  color: #fff;
+}
+
+.nav-menu a:hover,
+.nav-menu li:hover>a {
+  width: 100%;
+  color: #fff;
+}
+
+.nav-menu a:hover span,
+.nav-menu li:hover>a span {
+  display: block;
+}
+
+/**
+* Mobile Navigation 
+*/
+.mobile-nav-toggle {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  z-index: 9998;
+  border: 0;
+  background: none;
+  font-size: 28px;
+  transition: all 0.4s;
+  outline: none !important;
+  line-height: 0;
+  cursor: pointer;
+  border-radius: 50px;
+  padding: 5px;
+}
+
+.mobile-nav-toggle i {
+  color: var(--color-6);
+}
+
+.mobile-nav-active {
+  overflow: hidden;
+}
+
+.mobile-nav-active #header {
+  left: 0;
+}
+
+.mobile-nav-active .mobile-nav-toggle {
+  color: #fff;
+  background-color: var(--color-1);
+}
+
+/*--------------------------------------------------------------
+# Home Section
+--------------------------------------------------------------*/
+#home {
+  width: 100%;
+  height: 100vh;
+  display: var(--display-mode);
+}
+
+#home .clock {
+  margin: 0 auto;
+  height: auto;
+  width: 150px;
+  text-align: center;
+  border-radius: 7px;
+  background-color: var(--color-5);
+  box-shadow: 0 0 4px rgba(0,0,0, 0.7);
+}
+
+#home .clock .display {
+  padding: 6px 0;
+  padding-left: 2px;
+  color: var(--color-6);
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-family: "Orbitron";
+}
+
+#home .blockquote {
+  width: 100%;
+  height: 82vh;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#home .blockquote h1 {
+  background-image: url("https://images.unsplash.com/photo-1589306994259-a806e14b775a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80");
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 40px;
+}
+
+#home .blockquote h2 {
+  font-weight: 400;
+  font-size: 20px;
+  color: black;
+  opacity: 0.5;
+}
+
+#home .hr-text {
+  font-size: 20px;
+  position: relative;
+  border: 0;
+  height: 1.5em;
+}
+
+#home .hr-text:before {
+  content: "";
+  background: linear-gradient(to right, transparent, #b2b2b2, transparent);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+}
+
+#home .hr-text:after {
+  content: attr(data-content);
+  position: relative;
+  display: inline-block;
+  background-color: white;
+  padding: 0 0.5em;
+  line-height: 1.5em;
+}
+
+#home .footer {
+  width: 100%;
+  height: 6vh;  
+  padding: 8px 0;
+  position: static;
+  bottom: 0;
+}
+
+#home .footer .copyright {
+  font-size: 14px;
+  text-align: center;
+  color: var(--color-6);
+}
+
+@media (max-width: 992px) {
+  #Home {
+    text-align: center;
+  }
+}
+
+/*--------------------------------------------------------------
+# Pomodoro Section
+--------------------------------------------------------------*/
+#pomodoro {
+  width: 100%;
+  height: 100vh;
+  display: var(--display-mode);
+}
+#pomodoro .container {
+  height: 100%;
+}
+#pomodoro .card {
+  width: 20rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 15px;
+  background: var(--color-6);
+  box-shadow: 0 0 5px 0 rgba(0,0,0, 0.8);
+}
+#pomodoro .card-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+#pomodoro .card-header h1 {
+  font-size: 22px;
+  color: #fff;
+  font-family: 'Orbitron';
+}
+#pomodoro .card-header-buttons {
+  display: flex;
+  justify-content: stretch;
+  gap: 10px;
+  padding: 4px;
+}
+#pomodoro .card-header-buttons button {
+  padding: 8px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  background-color: var(--color-5);
+  color: #000;
+}
+#pomodoro .card-header-buttons .active {
+  background-color: var(--color-1);
+  color: #fff;
+}
+
+/* card body */
+#pomodoro .card-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+#pomodoro .progress-bar {
+  height: 180px;
+  width: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: conic-gradient(var(--color-1) 360deg, var(--color-5) 0deg);
+  border-radius: 50%;
+  animation: pulse 3s infinite;
+  transition: all ease;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+#pomodoro .progress-bar-inner {
+  width: 90%;
+  height: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-6);
+  border-radius: 50%;
+  box-shadow: rgba(6, 44, 30, 0.4) 0px 0px 0px 2px,
+    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+#pomodoro .progress-bar-inner h2 {
+  color: #fff;
+  font-weight: 900;
+  font-size: 40px;
+}
+/* card footer */
+#pomodoro .card-footer {
+  display: flex;
+  justify-content: stretch;
+  gap: 20px;
+  padding: 10px;
+}
+#pomodoro .card-footer button {
+  padding: 8px 12px;
+  border-radius: 6px;
+  background-color: var(--color-1);
+  color: #fff;
+  font-weight: 900;
+  font-size: 14px;
+}
+#pomodoro .card-footer .btn-sucess {
+  background-color: var(--color-1);
+}
+#pomodoro .card-footer .btn-danger {
+  color: #000;
+  background-color: var(--color-5);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.97);
+    box-shadow: 0 0 0 0 var(--color-1);
+  }
+  50% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(52, 172, 224, 0);
+  }
+  100% {
+    transform: scale(0.97);
+    box-shadow: 0 0 0 0 rgba(52, 172, 224, 0);
+  }
+}
+
+/*--------------------------------------------------------------
+# Whiteboard Section
+--------------------------------------------------------------*/
+#whiteboard {
+  height: 100vh;
+  display: var(--display-mode);
+  position: relative;
+}
+
+#canvas {
+  width:fit-content;
+  height:fit-content;
+  margin-left: -88px;
+}
+
+#whiteboard button{
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: var(--color-1);
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  cursor: pointer;
+  font-family: 'Orbitron';
+  box-shadow: 0 0 4px rgba(0,0,0, 0.7);
+  border: none;
+  transition: 40ms;
+}
+
+#whiteboard button:active{
+  transform: scale(0.95);
+}
+
+#whiteboard button:hover{
+  background-color: var(--color-2);
+  color: #fff;
+  transition: 30ms;
+}
+
+/*--------------------------------------------------------------
+# Calculator Section
+--------------------------------------------------------------*/
+#calculator {
+  width: 100%;
+  height: 100vh;
+  display: var(--display-mode);
+}
+
+#calculator .container {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+#calculator .calculator-bg {
+  position: relative;
+  height: auto;
+  width: 330px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px #000;
+  background-color: var(--color-6);
+}
+
+#calculator h2{
+  text-align: center;
+  font-family: 'Orbitron';
+  color: #fff;
+  font-size: 24px;
+}
+#calc-display {
+  height: 60px;
+  width: 280px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  font-size: 30px;
+  margin: 20px 5px;
+  padding: 0 5px;
+  border-radius: 5px;
+  overflow-x: scroll;
+  background-color: var(--color-5);
+}
+
+#calc-display ::-webkit-scrollbar {
+  height: 2px;
+  display: block;
+}
+
+#calculator button {
+  height: 60px;
+  width: 60px;
+  border: 0;
+  border-radius: 30px;
+  margin: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 200ms ease;
+  background-color: var(--color-5);
+  box-shadow: 0 0 4px rgba(0, 0, 0, .95);
+}
+
+#calculator button:hover {
+  transform: scale(1.1);
+}
+#calculator button#backspace {
+  background-color: var(--color-2);
+} 
+#calculator button.btn-operator {
+  background-color: var(--color-1);
+}
+#calculator button#clear {
+  background-color: var(--color-2);
+} 
+#calculator button#equal {
+  height: 130px;
+  background-color: var(--color-2);
+}
+
+/*--------------------------------------------------------------
+# Notepad Section
+--------------------------------------------------------------*/
+#notepad {
+  width: 100%;
+  height: 100vh;
+  display: var(--display-mode);
+}
+#notepad .container{
+  height: 100%;
+}
+::selection{
+  color: #fff;
+  background: var(--color-2);
+}
+#notepad .wrapper{
+  background-color: var(--color-6);
+  border-radius: 5px;
+  height: 100%;
+  display: grid;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fill, 250px);
+  overflow-y: scroll;
+}
+#notepad ::-webkit-scrollbar {
+  width: 8px;
+}
+#notepad ::-webkit-scrollbar-track {
+  color: var(--color-6);
+}
+#notepad .wrapper li{
+  height: 250px;
+  width: 250px;
+  list-style: none;
+  border-radius: 5px;
+  padding: 15px 20px 20px;
+  background: var(--color-5);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.336);
+}
+#notepad .add-box, #notepad .icon, #notepad .bottom-content, 
+#notepad .popup, #notepad header, #notepad .settings .menu li{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#notepad .add-box{
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+}
+#notepad .add-box .icon{
+  height: 78px;
+  width: 78px;
+  color: var(--color-1);
+  font-size: 40px;
+  border-radius: 50%;
+  justify-content: center;
+  border: 2px dashed var(--color-1);
+}
+#notepad .add-box p{
+  color: var(--color-1);
+  font-weight: 500;
+  margin-top: 20px;
+}
+#notepad .note{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#notepad .note .details{
+  max-height: 165px;
+  overflow-y: auto;
+}
+#notepad .note .details::-webkit-scrollbar,
+#notepad .popup textarea::-webkit-scrollbar{
+  width: 0;
+}
+#notepad .note .details:hover::-webkit-scrollbar,
+#notepad .popup textarea:hover::-webkit-scrollbar{
+  width: 5px;
+}
+#notepad .note .details:hover::-webkit-scrollbar-track,
+#notepad .popup textarea:hover::-webkit-scrollbar-track{
+  background: #f1f1f1;
+  border-radius: 25px;
+}
+#notepad .note .details:hover::-webkit-scrollbar-thumb,
+#notepad .popup textarea:hover::-webkit-scrollbar-thumb{
+  background: #e6e6e6;
+  border-radius: 25px;
+}
+#notepad .note p{
+  font-size: 22px;
+  font-weight: 500;
+}
+#notepad .note span{
+  display: block;
+  color: #575757;
+  font-size: 16px;
+  margin-top: 5px;
+}
+#notepad .note .bottom-content{
+  padding-top: 10px;
+  border-top: 1px solid #ccc;
+}
+#notepad.bottom-content span{
+  color: #6D6D6D;
+  font-size: 14px;
+}
+#notepad.bottom-content .settings{
+  position: relative;
+}
+#notepad.bottom-content .settings i{
+  color: #6D6D6D;
+  cursor: pointer;
+  font-size: 15px;
+}
+#notepad .settings .menu{
+  z-index: 1;
+  padding: 5px 0;
+  background: #fff;
+  position: absolute;
+  border-radius: 4px;
+  transform: scale(0);
+  transform-origin: bottom right;
+  box-shadow: 0 0 6px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease;
+}
+#notepad .settings.show .menu{
+  transform: scale(1);
+}
+#notepad .settings .menu li{
+  height: 25px;
+  font-size: 16px;
+  margin-bottom: 2px;
+  padding: 17px 15px;
+  cursor: pointer;
+  box-shadow: none;
+  border-radius: 0;
+  justify-content: flex-start;
+}
+#notepad .menu li:last-child{
+  margin-bottom: 0;
+}
+#notepad .menu li:hover{
+  background: #f5f5f5;
+}
+#notepad .menu li i{
+  padding-right: 8px;
+}
+#notepad .popup-box{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.4);
+}
+#notepad .popup-box .popup{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 3;
+  width: 100%;
+  max-width: 400px;
+  justify-content: center;
+  transform: translate(-50%, -50%) scale(0.95);
+}
+#notepad .popup-box, #notepad .popup{
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.25s ease;
+}
+#notepad .popup-box.show, #notepad .popup-box.show .popup{
+  opacity: 1;
+  pointer-events: auto;
+}
+#notepad .popup-box.show .popup{
+  transform: translate(-50%, -50%) scale(1);
+}
+#notepad .popup .content{
+  border-radius: 5px;
+  background: #fff;
+  width: calc(100% - 15px);
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+#notepad .content header{
+  padding: 15px 25px;
+  border-bottom: 1px solid #ccc;
+}
+#notepad .content header p{
+  font-size: 20px;
+  font-weight: 500;
+}
+#notepad .content header i{
+  color: #8b8989;
+  cursor: pointer;
+  font-size: 23px;
+}
+#notepad .content form{
+  margin: 15px 25px 35px;
+}
+#notepad .content form .row{
+  margin-bottom: 20px;
+}
+#notepad form .row label{
+  font-size: 18px;
+  display: block;
+  margin-bottom: 6px;
+}
+#notepad form :where(input, textarea){
+  height: 50px;
+  width: 100%;
+  outline: none;
+  font-size: 17px;
+  padding: 0 15px;
+  border-radius: 4px;
+  border: 1px solid #999;
+}
+#notepad form :where(input, textarea):focus{
+  box-shadow: 0 2px 4px rgba(0,0,0,0.11);
+}
+#notepad form .row textarea{
+  height: 150px;
+  resize: none;
+  padding: 8px 15px;
+}
+#notepad form button{
+  width: 100%;
+  height: 50px;
+  color: #fff;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-size: 17px;
+  border-radius: 4px;
+  background: var(--color-1);
+}
+#notepad form button:hover{
+  background: var(--color-2);
+}
+
+@media (max-width: 660px){
+  #notepad .wrapper{
+    margin: 15px;
+    gap: 15px;
+    grid-template-columns: repeat(auto-fill, 100%);
+  }
+  #notepad .popup-box .popup{
+    max-width: calc(100% - 15px);
+  }
+  #notepad .bottom-content .settings i{
+    font-size: 17px;
+  }
+}
+/*--------------------------------------------------------------
+# Geogebra Section
+--------------------------------------------------------------*/
+#geogebra {
+  width: 100%;
+  height: 100vh;
+  display: var(--display-mode);
+}
+#geogebra .container{
+  width: 100%;
+  height: 100%;
+}
+#geogebra .form-bg{
+  padding: 20px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+#geogebra form{
+  padding: 10px;
+  border-radius: 10px;
+  background-color: var(--color-5);
+  box-shadow: 0 0 4px rgba(0,0,0, 0.7);
+}
+#geogebra .eq{
+  font-size: 20px;
+  color: var(--color-6);
+}
+#geogebra input[type=text] {
+  height: auto;
+  font-size: 18px;
+  padding-left: 8px;
+  border-radius: 5px;
+  width: 30em;
+  color: var(--color-6);
+  border: 1px solid rgba(0,0,0, 0.4);
+}
+#geogebra input[type=text]:hover{
+  border: 1px solid var(--color-1);
+}
+#geogebra input[type=submit]{
+  width: 60px;
+  height: auto;
+  font-size: 18px;
+  border-radius: 5px;
+  background-color: var(--color-1);
+  color: #fff;
+  border: none;
+}
+#geogebra input[type=submit]:hover{
+  background-color: var(--color-2);
+}
+#geogebra .plot-bg{
+  background-color: var(--color-6);
+  padding: 10px;
+  box-shadow: 0 0 4px rgba(0,0,0, 0.7);
+  border-radius: 10px;
+}
+#plot{
+  display: flex;
+  justify-content: center;
+}
+/*--------------------------------------------------------------
+# About Section
+--------------------------------------------------------------*/
+#about {
+  width: 100%;
+  height: 100vh;
+  display: var(--display-mode);
+}
+
+#about .container{
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+}
+#about .bg-col{
+  background-color: var(--color-5);
+  box-shadow: 0 0 4px rgba(0,0,0, 0.7);
+  height: 90%;
+  padding: 20px 20px;
+  margin: 10px;
+  border-radius: 10px;
+}
+#about h2{
+  color: var(--color-1);
+}
+#about h4{
+  color: var(--color-6);
+}
+#about .dev-bg{
+  padding: 10px;
+}

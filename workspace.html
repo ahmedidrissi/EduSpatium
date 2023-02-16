@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>EduSpatium</title>
+  <script src="https://unpkg.com/mathjs@11.5.1/lib/browser/math.js"></script>
+  <script src="https://cdn.plot.ly/plotly-1.35.2.min.js"></script>
+  
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link type="image/png" sizes="32x32" rel="icon" href="https://img.icons8.com/glyph-neue/64/null/education.png">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/workspace.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Mobile nav toggle button ======= -->
+  <i class="bi bi-list mobile-nav-toggle d-lg-none"></i>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex flex-column justify-content-center" data-aos="fade-right">
+
+    <nav id="navbar" class="navbar nav-menu">
+      <ul>
+        <li><a id="nav-home" onclick="show('home')" href="#home" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
+        <li><a id="nav-pomodoro" onclick="show('pomodoro')" href="#pomodoro" class="nav-link scrollto"><i class="bx bx-alarm"></i> <span>Pomodoro</span></a></li>
+        <li><a id="nav-whiteboard" onclick="show('whiteboard')" href="#whiteboard" class="nav-link scrollto"><i class="bx bxs-chalkboard"></i> <span>Whiteboard</span></a></li>
+        <li><a id="nav-calculator" onclick="show('calculator')" href="#calculator" class="nav-link scrollto"><i class="bx bx-calculator"></i> <span>Calculator</span></a></li>
+        <li><a id="nav-notepad" onclick="show('notepad')" href="#notepad" class="nav-link scrollto"><i class="bx bx-notepad"></i> <span>Notepad</span></a></li>
+        <li><a id="nav-geogebra" onclick="show('geogebra')" href="#geogebra" class="nav-link scrollto"><i class="bx bxl-graphql"></i> <span>Geogebra</span></a></li>
+        <li><a id="nav-about" onclick="show('about')" href="#about" class="nav-link scrollto"><i class="bx bxs-contact"></i> <span>About Us</span></a></li>
+      </ul>
+    </nav><!-- .nav-menu -->
+
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Home Section ======= -->
+    <section id="home" class="home display-on">
+      <div class="container pt-3" data-aos="fade-down">
+          <div class="clock">
+            <div class="display"></div>
+          </div>
+      </div>
+      <div class="container px-lg-5 px-3" data-aos="fade-up">
+      <div class="blockquote">
+          <div class="quote-generator">
+          <hr class="hr-text" data-content="Quotes" />
+          <h1 id="quote">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem,
+              perferendis.
+          </h1>
+          <h2 id="author">Anonymous</h2>
+          </div>
+      </div>
+      </div>
+      <div class="container">
+      <div class="footer">
+          <div class="copyright">
+          &copy; 2023 <strong><span>EduSpatium</span></strong>. All Rights Reserved
+          </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- ======= Pomodoro Section ======= -->
+    <section id="pomodoro" class="pomodoro display-off">
+      <div class="container d-flex justify-content-center align-items-center" data-aos="fade-up">
+        <div class="card">
+            <div class="card-header">
+                <h1>Pomodoro Timer</h1>
+                <div class="card-header-buttons">
+                    <button id="buttonTypePomodoro"
+                            class="active" 
+                            onclick="setPomodoroType(TIMER_TYPE_POMODORO);">
+                            Pomodoro
+                    </button>
+                    <button id="buttonTypeShortBreak"
+                            onclick="setPomodoroType(TIMER_TYPE_SHORT_BREAK);">
+                        Short Break
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="circularProgressBar" class="progress-bar">
+                    <div class="progress-bar-inner">
+                        <h2 class="progress-value">25:00</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button class="btn-sucess" onclick="startTimer();">Start</button>
+                <button class="btn-danger" onclick="stopTimer();">Stop</button>
+                <button onclick="resetTimer();">Reset</button>
+            </div>
+        </div>
+        </div>
+    </section>
+    <!-- ======= Whiteboard Section ======= -->
+    <section id="whiteboard" class="whiteboard display-off">
+        <button onclick="resize()">Clear</button>
+        <canvas id="canvas"></canvas> 
+    </section>
+    <!-- ======= Calculator Section ======= -->
+    <section id="calculator" class="calculator display-off">
+      <div class="container" data-aos="fade-up">
+        <div class="calculator-bg">
+            <h2>Calculator</h2>
+            <div class="display-screen">
+                <div id="calc-display"></div>
+            </div>
+            <div class="buttons">
+                <table>
+                    <tr>
+                        <td><button class="calc-button btn-operator" id="clear">C</button></td>
+                        <td><button class="calc-button btn-operator" id="/">&divide;</button></td>
+                        <td><button class="calc-button btn-operator" id="*">&times;</button></td>
+                        <td><button class="calc-button btn-operator" id="backspace"><</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="calc-button btn-number" id="7">7</button></td>
+                        <td><button class="calc-button btn-number" id="8">8</button></td>
+                        <td><button class="calc-button btn-number" id="9">9</button></td>
+                        <td><button class="calc-button btn-operator" id="-">-</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="calc-button btn-number" id="4">4</button></td>
+                        <td><button class="calc-button btn-number" id="5">5</button></td>
+                        <td><button class="calc-button btn-number" id="6">6</button></td>
+                        <td><button class="calc-button btn-operator" id="+">+</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="calc-button btn-number" id="1">1</button></td>
+                        <td><button class="calc-button btn-number" id="2">2</button></td>
+                        <td><button class="calc-button btn-number" id="3">3</button></td>
+                        <td rowspan="2"><button class="calc-button btn-equal" id="equal">=</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="calc-button btn-operator" id="(">(</button></td>
+                        <td><button class="calc-button btn-number" id="0">0</button></td>
+                        <td><button class="calc-button btn-operator" id=")">)</button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+      </div>
+    </section>
+    <!-- ======= Notepad Section ======= -->
+    <section id="notepad" class="notepad display-off">
+      <div class="container p-4">
+        <div class="popup-box">
+          <div class="popup">
+            <div class="content">
+              <header>
+                <p class="m-0"></p>
+                <i class="bx bx-x"></i>
+              </header>
+              <form action="#">
+                <div class="row title">
+                  <label>Title</label>
+                  <input type="text" spellcheck="false">
+                </div>
+                <div class="row description">
+                  <label>Description</label>
+                  <textarea spellcheck="false"></textarea>
+                </div>
+                <button class="mt-2"></button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="wrapper">
+          <li class="add-box">
+            <div class="icon mt-3"><i class="bx bx-plus"></i></div>
+            <p>Add new note</p>
+          </li>
+        </div>
+      </div>
+    </section>
+    <!-- ======= Geogebra Section ======= -->
+    <section id="geogebra" class="geogebra display-off">
+      <div class="container">
+        <div class="form-bg">
+          <form id="form">
+            <label for="eq" class="eq">Enter the function :</label><br>
+            <input type="text" id="eq" placeholder="Ex: sqrt(x) * sin(x^2) / x" />
+            <input type="submit" value="Draw" />
+          </form>
+        </div>
+        <div class="plot-bg">
+          <div id="plot"></div>
+        </div>
+      </div>
+    </section>
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about display-off">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-12">
+            <div class="bg-col">
+              <h2>What is EduSpatium ?</h2>
+              <p>EduSpatium is a website that provides students with useful tools for their studies.</p>
+            </div>
+          </div>
+          <div class="col-lg-6 col-12">
+            <div class="bg-col">
+              <h2>About the project</h2>
+              <p>This website was developed by software engineering students from ENSIAS Rabat in order to participate in the DEVJAM competition organized by the ENSIAS IT Club.</p>
+            </div>
+            </div>
+          <div class="col-lg-12">
+            <div class="bg-col">
+              <h2>About the developers</h2>
+              <div class="row">
+                <div class="col-lg-6 col-12">
+                  <div class="dev-bg">
+                    <h4>IDRISSI Ahmed</h4>
+                    <ul>
+                      <li>1A Software Engineering Student</li>
+                      <li>E-mail : idrissiahmed2002@gmail.com</li>
+                      <li>Tel : (+212) 622406448</li>
+                      <li>Github : <a href="https://github.com/ahmedidrissi">https://github.com/ahmedidrissi</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-12">
+                  <div class="dev-bg">
+                    <h4>BOUMEHDI Mohammed-Yassine</h4>
+                    <ul>
+                      <li>1A Software Engineering Student</li>
+                      <li>E-mail : myboumehdi.2002@gmail.com</li>
+                      <li>Tel : (+212) 658568444</li>
+                      <li>Github : <a href="https://github.com/MYassineBoum">https://github.com/MYassineBoum</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-12">
+                  <div class="dev-bg">
+                    <h4>FADLI Saber</h4>
+                    <ul>
+                      <li>1A Software Engineering Student</li>
+                      <li>E-mail : saberfadli5@gmail.com</li>
+                      <li>Tel : (+212) 700713446</li>
+                      <li>Github : <a href="https://github.com/joyboy00">https://github.com/joyboy00</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-12">
+                  <div class="dev-bg">
+                    <h4>KHAOUITI Abdelhakim</h4>
+                    <ul>
+                      <li>1A Software Engineering Student</li>
+                      <li>E-mail : cpgekhaouiti2009@gmail.com</li>
+                      <li>Tel : (+212) 600387695</li>
+                      <li>Github : <a href="https://github.com/khaouitiabdelhakim">https://github.com/khaouitiabdelhakim</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    const sections = ["pomodoro", "whiteboard", "calculator", "notepad", "geogebra", "about"]
+
+    function hide(sectionName) {
+      element1 = document.querySelector("#nav-" + sectionName);
+      element1.setAttribute("class", "nav-link scrollto") ;
+      element2 = document.querySelector("#" + sectionName);
+      element2.setAttribute("class", sectionName + " display-off") ;
+    }
+
+    function show(sectionName) {
+      sections.forEach(hide)
+      element1 = document.querySelector("#nav-" + sectionName);
+      element1.setAttribute("class", "nav-link scrollto active") ;
+      element2 = document.querySelector("#" + sectionName);
+      element2.setAttribute("class", sectionName + " display-on") ;
+    }
+  </script>
+
+  <!-- Digital Clock -->
+  <script src="assets/js/clock.js"></script>
+  <script>
+    setInterval(showClock);
+  </script>
+
+  <!-- Quote generator -->
+  <script src="assets/js/load.js"></script>
+  <script>
+    getQuoteLocal();
+    setInterval(getQuoteLocal, 10*1000);
+  </script>
+
+  <script src="assets/js/pomodoro.js"></script>
+  <script src="assets/js/whiteboard.js"></script>
+  <script src="assets/js/calculator.js"></script>
+  <script src="assets/js/notepad.js"></script>
+  <script src="assets/js/geogebra.js"></script>
+
+</body>
+
+</html>
