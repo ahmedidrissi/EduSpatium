@@ -3,5 +3,3 @@ EduSpatium is an online platform designed for students to streamline their learn
 
 # About the project
 This platform was developed by software engineering students from ENSIAS Rabat in order to participate in the DEVJAM competition organized by the ENSIAS IT Club.
-
-Link : https://ahmedidrissi.github.io/EduSpatium/
